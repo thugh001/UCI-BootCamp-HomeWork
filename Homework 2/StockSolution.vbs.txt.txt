@@ -1,0 +1,66 @@
+Sub Addworksheet()
+
+    'add new worksheet to workbook'
+    ActiveWorkbook.Sheets.Add After:=Worksheets(Worksheets.Count)
+    
+    'add column headers to new worksheet'
+    Range("a1").Value = "Ticker"
+    Range("b1").Value = "Total Change"
+    Range("c1").Value = "%Change"
+    Range("d1").Value = "Avg. Daily Change"
+    Range("e1").Value = "Volume"
+    Range("g2").Value = "Greatest volume"
+    Range("g5").Value = "Greatest%Increase"
+    Range("g8").Value = "Greatest%Decr."
+    Range("g11").Value = "Greatest Avg.change"
+    
+    'make column header font bold'
+    Range("a1:e1").Font.Bold = True
+    Range("g2").Font.Bold = True
+    Range("g5").Font.Bold = True
+    Range("g8").Font.Bold = True
+    Range("g11").Font.Bold = True
+    
+End Sub
+
+Sub Aggregate_Ticker()
+  'Set an initial variable for holding the ticker'
+    Dim Ticker As String
+  'Set an initial variable for holding the total volume per ticker'
+    Dim Total_Volume As Double
+    Total_Volume = 0
+  'Keep track of the location for each ticker in the summary table
+    Dim Summary_Table_Row As Long
+    Summary_Table_Row = 2
+  'Loop through all ticker symbols'
+  For i = 2 To 797711
+    'Check if we are still within the same ticker symbol'
+    If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+      'Set the Ticker'
+      Ticker = Cells(i, 1).Value
+      'Add to the Total Volume'
+      Total_Volume = Total_Volume + Cells(i, 7).Value
+      
+      'Print the Ticker Symbol in the Summary Table'
+      Range("I" & Summary_Table_Row).Value = Ticker
+      
+      'Print the Total Volume to the Summary Table'
+      Range("J" & Summary_Table_Row).Value = Total_Volume
+      
+      'Add one to the summary table row'
+      Summary_Table_Row = Summary_Table_Row + 1
+      
+      'Reset the ticker symbol'
+      Total_Volume = 0
+    'If the cell immediately following a row is the same ticker'
+    Else
+      ' Add to the Total Volume
+      Total_Volume = Total_Volume + Cells(i, 7).Value
+    End If
+  Next i
+  
+  'add ticker header to summary table'
+    Range("I1") = "Ticker"
+    Range("J1") = "Total Stock Volume"
+  
+End Sub
