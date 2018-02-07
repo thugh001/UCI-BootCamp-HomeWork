@@ -33,16 +33,16 @@
           Plots
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Max Temperature</a>
-          <a class="dropdown-item" href="#">Humidity</a>
-          <a class="dropdown-item" href="#">Cloudiness</a>
-          <a class="dropdown-item" href="#">Wind Speed</a>
+          <a class="dropdown-item" href="Max Temperature.html">Max Temperature</a>
+          <a class="dropdown-item" href="Humidity.html">Humidity</a>
+          <a class="dropdown-item" href="Cloudiness.html">Cloudiness</a>
+          <a class="dropdown-item" href="Wind Speed.html">Wind Speed</a>
         </div>
 			<li class="nav-item">
-          		<a class="nav-link" href="#">Comparison</a>
+          		<a class="nav-link" href="Comparison.html">Comparison</a>
        		 </li>
         	<li class="nav-item">
-          		<a class="nav-link" href="#">Data</a>
+          		<a class="nav-link" href="Data.html">Data</a>
         	</li>
       </li>
     </ul>
@@ -52,23 +52,39 @@
 
 <!--Page Content -->
 <div class = "container">
+
 	<!--Page Header -->
 		<div class = "row">
-			<div class = "col-1g-12">
+			<div class = "col-lg-12">
 				<br>
 				<br>
-				<h1 class = "page header">Summary: Latitude vs. X 
-				</h1>	
+				<div class = "page-header">
+				<h1 class = "text-left">Wind Speed</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+				</div>
+    </div>
 				<br>
-					<img class = "media object" src = "img/CityLatTemperature.png" width="600" height="400">
-					<br>
-				<p class="lead">The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this analysis, we first pulled data frome the OpenWeatherMap API to assemble a dataset on over 500 cities. 
-					<br>
-					<br>
-				After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included: temperature, cloudiness, wind speed, and humidity. This site provices the source data and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and correlations witnessed. </p>
-
+        <br>
+        <br>
+      <div class = "row">
+        <div class = "col-md-6">
+            <div class = "media">
+              <div class = "media-left">
+					       <img class = "media object" src = "img/CityLatWindSpeed.png" width="600" height="400">
+              </div>
+            </div>  
+        </div>
+        <div class = "col-md-6">
+          <br>
+          <br>
+				<p class="lead">As expected, the weather becomes significantly warmer as one approaches the equator(0 Deg. Latitude). More interestingly, however, is the fact that the southern hemisphere tends to be warmer this time of year than the northern hemisphere. This may be due to the tilt of the earth at the time of the year this data was gathered. </p>
+      </div>
 			</div>
 		</div>	
+  </div>
 <!--Page Content End -->
 
 </head>
