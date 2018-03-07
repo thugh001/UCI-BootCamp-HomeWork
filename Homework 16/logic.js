@@ -44,15 +44,14 @@ var map = L.map("map", {
     layers: [streets]
 });
 
+var quakes = L.layerGroup([]);
+var plates = L.layerGroup([]);
+
 var baseMaps = {
     "Streets": streets,
     "Dark": dark,
     "Pencil": pencil
 };
-
-var quakes = L.layerGroup([]);
-var plates = L.layerGroup([]);
-
 
 var overlayMaps = {
     "Quakes": quakes,
